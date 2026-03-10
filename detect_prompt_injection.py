@@ -63,6 +63,22 @@ INJECTION_PATTERNS = [
     r'新的?(系统|指令|提示)[:：]',
     r'你现在(是|变成|成为)',
 
+    # 韩文指令重置类 (Korean)
+    r'이전\s*(지시|명령|프롬프트).{0,10}(무시|잊)',   # 이전 지시를 무시 (ignore previous instructions)
+    r'모든\s*이전\s*(지시|명령).{0,10}무시',           # 모든 이전 지시를 무시 (ignore all previous instructions)
+    r'당신은\s*이제\s*.{0,10}(입니다|이에요|야)',       # 당신은 이제 ~ 입니다 (you are now a ...)
+    r'새로운\s*(지시|명령|시스템)\s*[:：]',             # 새로운 지시: (new instructions:)
+    r'시스템\s*프롬프트.{0,15}(보내|전송|유출)',        # 시스템 프롬프트를 보내 (send system prompt)
+    r'(지시|명령).{0,5}(무시|잊어)',                   # 지시를 무시 / 잊어 (ignore/forget instructions)
+
+    # 日文指令重置类 (Japanese)
+    r'(前|以前).{0,5}(指示|命令|プロンプト).{0,10}(無視|忘れ)',  # 以前の指示を無視 (ignore previous instructions)
+    r'すべて.{0,5}(指示|命令).{0,10}(無視|忘れ)',               # すべての指示を無視 (ignore all instructions)
+    r'あなたは今.{0,15}(です|だ)',                              # あなたは今〜です (you are now a ...)
+    r'新し[いく]\s*(指示|命令|システム)\s*[:：]',                # 新しい指示: (new instructions:)
+    r'システムプロンプト.{0,15}(送|漏洩|流出)',                  # システムプロンプトを送る (send system prompt)
+    r'(指示|命令).{0,5}(無視|忘れ)',                            # 指示を無視/忘れ (ignore/forget instructions)
+
     # 数据外泄类
     r'send\s+(all\s+)?(your\s+)?(conversation|context|system\s+prompt|instructions?)\s+to',
     r'exfiltrate',
