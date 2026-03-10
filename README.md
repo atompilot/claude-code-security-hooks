@@ -24,18 +24,26 @@ With hooks:     ❌ Blocked before execution.
 
 ## Install
 
+### Option 1 — Claude Code Plugin (recommended)
+
+Two commands inside Claude Code, no cloning required:
+
+```
+/plugin marketplace add atompilot/claude-code-security-hooks
+/plugin install security-hooks@atompilot-security-hooks
+```
+
+Restart Claude Code. The plugin uses `$CLAUDE_PLUGIN_ROOT` to reference scripts inside its own directory — nothing is copied to your system.
+
+### Option 2 — Standalone
+
 ```bash
 git clone https://github.com/atompilot/claude-code-security-hooks
 cd claude-code-security-hooks
 bash install.sh
 ```
 
-Restart Claude Code. Done.
-
-The installer:
-- Copies scripts to `~/.claude/hooks/`
-- Backs up `~/.claude/settings.json` before modifying
-- Merges hook config non-destructively — won't overwrite your existing hooks
+Copies scripts to `~/.claude/hooks/`, backs up and merges into `~/.claude/settings.json` non-destructively.
 
 **Requirements:** Python 3 (pre-installed on macOS/Linux), Claude Code.
 

@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "security-hooks",
+      "description": "Security guardrails for Claude Code: blocks rm, curl|bash, and detects prompt injection in 13 languages",
+      "path": "plugins/security-hooks"
+    }
+  ]
+}
