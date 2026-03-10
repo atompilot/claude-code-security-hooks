@@ -29,11 +29,9 @@ if isinstance(tool_response, (dict, list)):
 else:
     response_text = str(tool_response)
 
-# 只检查可能包含外部内容的工具
+# 只检查真正来自外部的工具结果（本地文件误报率太高，不纳入）
 WATCHED_TOOLS = {
-    "WebFetch",       # 网页内容
-    "Bash",           # 命令输出（可能包含外部数据）
-    "Read",           # 文件内容
+    "WebFetch",       # 网页内容（最高风险）
     "mcp__browsermcp__browser_snapshot",
     "mcp__browsermcp__browser_get_console_logs",
     "mcp__tavily__tavily_search",
